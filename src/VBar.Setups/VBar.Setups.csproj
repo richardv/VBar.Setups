@@ -6,7 +6,7 @@
 
 	<PropertyGroup>
 		<PackageId>RichardV.VBar.Setups</PackageId>
-		<Version>1.0.0.1</Version>
+		<Version>1.1.0</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/richardv/VBar.Setups</RepositoryUrl>
 		<Description>A library to parse VBar setup files.</Description>
