@@ -25,8 +25,7 @@ steps:
 
   - task: VSTest@2
     inputs:
-    testAssemblyVer2: |
-      **\*.Tests.dll
+      testSelector: "testAssemblies"
 
   - task: CopyFiles@2
     displayName: "Copy Files to: $(build.artifactstagingdirectory)"
