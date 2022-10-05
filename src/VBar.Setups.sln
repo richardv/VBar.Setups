@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VBar.Setups", "VBar.Setups\VBar.Setups.csproj", "{76972BF4-2107-4E25-B863-B2730563E46E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VBar.Setups.Tests", "VBar.Setups.Tests\VBar.Setups.Tests.csproj", "{C240C37E-139E-4A3A-B033-48914E6155EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{76972BF4-2107-4E25-B863-B2730563E46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76972BF4-2107-4E25-B863-B2730563E46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76972BF4-2107-4E25-B863-B2730563E46E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C240C37E-139E-4A3A-B033-48914E6155EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C240C37E-139E-4A3A-B033-48914E6155EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C240C37E-139E-4A3A-B033-48914E6155EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C240C37E-139E-4A3A-B033-48914E6155EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
