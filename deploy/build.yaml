@@ -1,0 +1,6 @@
+trigger:
+- deploy/*.*
+- src/*.*
+
+pool:
+  vmImage: 'windows-latest'
