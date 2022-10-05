@@ -25,6 +25,7 @@ steps:
 
   - task: VSTest@2
     inputs:
+    testAssemblyVer2: |
       **\*.Tests.dll
 
   - task: CopyFiles@2
