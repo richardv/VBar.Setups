@@ -1,6 +1,25 @@
 trigger:
-- deploy/*.*
-- src/*.*
+  - deploy/*.*
+  - src/*.*
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: "windows-latest"
+
+variables:
+  - name: solution
+    value: "src/VBar.Setups.UWP.sln"
+  - name: buildPlatform
+    value: "x86|x64|ARM"
+  - name: buildConfiguration
+    value: "Release"
+
+steps:
+  - task: VSBuild@1
+    inputs:
+      platform: "x86"
+      solution: "$(solution)"
+      configuration: "$(buildConfiguration)"
+      msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)"
+        /p:AppxPackageDir="$(appxPackageDir)"
+        /p:AppxBundle=Always
+        /p:UapAppxPackageBuildMode=StoreUpload'
