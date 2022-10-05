@@ -244,11 +244,11 @@
             }
         }
 
-        public string MainGearRatio()
+        public double MainGearRatio()
         {
             double ratio = Value(Settings.Main_Gear_Ratio);
 
-            return (ratio / 10).ToString("0.0");
+            return (ratio / 10);
         }
 
         public string Version()
