@@ -23,6 +23,10 @@ steps:
       solution: "$(solution)"
       configuration: "$(buildConfiguration)"
 
+  - task: VSTest@2
+    inputs:
+      **\*test*.dll
+
   - task: CopyFiles@2
     displayName: "Copy Files to: $(build.artifactstagingdirectory)"
     inputs:
