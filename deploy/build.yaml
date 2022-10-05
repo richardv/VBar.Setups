@@ -7,7 +7,7 @@ pool:
 
 variables:
   - name: solution
-    value: "src/VBar.Setups.UWP.sln"
+    value: "src/VBar.Setups.sln"
   - name: buildPlatform
     value: "x86|x64|ARM"
   - name: buildConfiguration
