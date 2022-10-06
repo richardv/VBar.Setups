@@ -13,6 +13,8 @@ variables:
     value: "src/VBar.Setups.sln"
   - name: buildConfiguration
     value: "Release"
+  - name: projectPath
+    value: "src/VBar.Setups"
 
 pool:
   vmImage: "windows-latest"
