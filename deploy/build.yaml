@@ -30,7 +30,6 @@ steps:
       configuration: "$(buildConfiguration)"
 
   - task: BuildQualityChecks@6
-    condition: eq('${{parameters.skipBuildQualityChecks}}', false)
     displayName: 'Checking the Build Quality'
     inputs:
       checkWarnings: true
