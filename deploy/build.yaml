@@ -29,11 +29,13 @@ steps:
       solution: "$(solution)"
       configuration: "$(buildConfiguration)"
 
-  - task: BuildQualityChecks@7
-    displayName: 'Checking the Build Quality'
+  - task: DotNetCoreCLI@2
+    displayName: 'Run unit tests - $(buildConfiguration)'
     inputs:
-      checkWarnings: true
-      warningFailOption: 'build'
+      command: 'test'
+      arguments: '--no-build --configuration $(buildConfiguration)'
+      publishTestResults: true
+      projects: '**/*.Tests.csproj'
 
   # - task: VSTest@2
   #   inputs:
