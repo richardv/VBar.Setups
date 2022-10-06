@@ -1,6 +1,6 @@
-﻿namespace VBar
+﻿namespace VBar.Setups
 {
-    public class GovernorTypes
+    internal static class GovernorTypes
     {
         public const int External = 0;
         public const int VBarElectric = 1;
