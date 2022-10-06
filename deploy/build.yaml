@@ -1,9 +1,12 @@
 trigger:
-  - deploy/**
-  - src/**
+  branches:
+    include:
+      - main
 
-pool:
-  vmImage: "windows-latest"
+  paths:
+    include:
+      - deploy/*
+      - src/*
 
 variables:
   - name: solution
@@ -11,6 +14,9 @@ variables:
   - name: buildConfiguration
     value: "Release"
 
+pool:
+  vmImage: "windows-latest"
+    
 steps:
   - task: NuGetToolInstaller@1
 
