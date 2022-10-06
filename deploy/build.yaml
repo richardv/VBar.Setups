@@ -37,18 +37,13 @@ steps:
       publishTestResults: true
       projects: '**/*.Tests.csproj'
 
-  # - task: VSTest@2
-  #   inputs:
-  #     testAssemblyVer2: |
-  #       !**\*test.XXX.dll
-  #       !**\*test.YYY.dll
-  #       **\*test*.dll
-  #       !**\obj\**
-  #       vsTestVersion: 16.0
-  #       runInParallel: true
-  #       codeCoverageEnabled: false
-  #       diagnosticsEnabled: true
-
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet clean'
+    inputs:
+      command: custom
+      projects: '${{parameters.projectPath}}'
+      custom: clean
+        
   - task: CopyFiles@2
     displayName: "Copy Files to: $(build.artifactstagingdirectory)"
     inputs:
