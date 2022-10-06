@@ -29,6 +29,13 @@ steps:
       solution: "$(solution)"
       configuration: "$(buildConfiguration)"
 
+  - task: BuildQualityChecks@6
+    condition: eq('${{parameters.skipBuildQualityChecks}}', false)
+    displayName: 'Checking the Build Quality'
+    inputs:
+      checkWarnings: true
+      warningFailOption: 'build'
+
   # - task: VSTest@2
   #   inputs:
   #     testAssemblyVer2: |
