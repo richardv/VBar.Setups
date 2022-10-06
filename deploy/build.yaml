@@ -29,7 +29,7 @@ steps:
       solution: "$(solution)"
       configuration: "$(buildConfiguration)"
 
-  - task: BuildQualityChecks@6
+  - task: BuildQualityChecks@7
     displayName: 'Checking the Build Quality'
     inputs:
       checkWarnings: true
