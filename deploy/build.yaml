@@ -47,7 +47,7 @@ steps:
     displayName: 'dotnet clean'
     inputs:
       command: custom
-      projects: '${{projectPath}}'
+      projects: '$(projectPath)'
       custom: clean
         
   - task: CopyFiles@2
