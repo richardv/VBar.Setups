@@ -5,8 +5,8 @@ trigger:
 
   paths:
     include:
-      - deploy/*
-      - src/*
+      - deploy/build.yaml
+      - src/VBar.Setups/*
 
 variables:
   - name: solution
