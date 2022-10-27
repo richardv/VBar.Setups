@@ -39,22 +39,22 @@ steps:
       publishTestResults: true
       projects: '**/*.Tests.csproj'
 
-  - task: DotNetCoreCLI@2
-    displayName: 'dotnet clean'
-    inputs:
-      command: custom
-      projects: '$(projectPath)'
-      custom: clean
+  # - task: DotNetCoreCLI@2
+  #   displayName: 'dotnet clean'
+  #   inputs:
+  #     command: custom
+  #     projects: '$(projectPath)'
+  #     custom: clean
         
-  - task: CopyFiles@2
-    displayName: "Copy Files to: $(build.artifactstagingdirectory)"
-    inputs:
-      SourceFolder: "$(system.defaultworkingdirectory)"
-      Contents: '**\bin\$(BuildConfiguration)\**'
-      TargetFolder: "$(build.artifactstagingdirectory)"
+  # - task: CopyFiles@2
+  #   displayName: "Copy Files to: $(build.artifactstagingdirectory)"
+  #   inputs:
+  #     SourceFolder: "$(system.defaultworkingdirectory)"
+  #     Contents: '**\bin\$(BuildConfiguration)\**'
+  #     TargetFolder: "$(build.artifactstagingdirectory)"
 
   - task: NuGetCommand@2
     inputs:
       command: pack
-      packagesToPack: '**/*.csproj'
+      packagesToPack: 'src/VBar.Setups/VBar.Setups.csproj'
       packDestination: '$(Build.ArtifactStagingDirectory)'      
