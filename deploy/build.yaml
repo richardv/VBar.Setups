@@ -10,29 +10,31 @@ trigger:
 
 variables:
   - name: solution
-    value: "src/VBar.Setups.sln"
+    value: 'src/VBar.Setups.sln'
   - name: buildConfiguration
-    value: "Release"
+    value: 'Release'
   - name: projectPath
-    value: "src/VBar.Setups"
+    value: 'src/VBar.Setups'
 
 pool:
-  vmImage: "windows-latest"
+  vmImage: 'windows-latest'
     
 steps:
   - task: NuGetToolInstaller@1
 
   - task: NuGetCommand@2
+    displayName: 'Restore'
     inputs:
-      restoreSolution: "$(solution)"
+      restoreSolution: '$(solution)'
 
   - task: VSBuild@1
+    displayName: 'Build'
     inputs:
-      solution: "$(solution)"
-      configuration: "$(buildConfiguration)"
+      solution: '$(solution)'
+      configuration: '$(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
-    displayName: 'Run unit tests - $(buildConfiguration)'
+    displayName: 'Test'
     inputs:
       command: 'test'
       arguments: '--no-build --configuration $(buildConfiguration)'
@@ -40,22 +42,23 @@ steps:
       projects: '**/*.Tests.csproj'
 
   - task: NuGetCommand@2
+    displayName: 'Pack'
     inputs:
       command: pack
       packagesToPack: 'src/VBar.Setups/VBar.Setups.csproj'
       packDestination: '$(Build.ArtifactStagingDirectory)'      
 
   - task: DotNetCoreCLI@2
-    displayName: 'dotnet clean'
+    displayName: 'Clean'
     inputs:
       command: custom
       projects: '$(projectPath)'
       custom: clean
         
   - task: CopyFiles@2
-    displayName: "Copy Files to: $(build.artifactstagingdirectory)"
+    displayName: 'Copy'
     inputs:
-      SourceFolder: "$(system.defaultworkingdirectory)"
+      SourceFolder: '$(system.defaultworkingdirectory)'
       Contents: '**\VBar.Setups.*.nupkg'
-      TargetFolder: "$(build.artifactstagingdirectory)"
+      TargetFolder: '$(build.artifactstagingdirectory)'
       
