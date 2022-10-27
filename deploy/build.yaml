@@ -45,17 +45,17 @@ steps:
       packagesToPack: 'src/VBar.Setups/VBar.Setups.csproj'
       packDestination: '$(Build.ArtifactStagingDirectory)'      
 
-  # - task: DotNetCoreCLI@2
-  #   displayName: 'dotnet clean'
-  #   inputs:
-  #     command: custom
-  #     projects: '$(projectPath)'
-  #     custom: clean
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet clean'
+    inputs:
+      command: custom
+      projects: '$(projectPath)'
+      custom: clean
         
   - task: CopyFiles@2
     displayName: "Copy Files to: $(build.artifactstagingdirectory)"
     inputs:
       SourceFolder: "$(system.defaultworkingdirectory)"
-      Contents: '**\bin\$(BuildConfiguration)\**'
+      Contents: '**\VBar.Setups.*.nupkg'
       TargetFolder: "$(build.artifactstagingdirectory)"
       
