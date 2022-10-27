@@ -55,10 +55,22 @@ steps:
   #     projects: '$(projectPath)'
   #     custom: clean
         
-  - task: CopyFiles@2
-    displayName: 'Copy'
-    inputs:
-      SourceFolder: '$(system.defaultworkingdirectory)'
-      Contents: '**\VBar.Setups.*.nupkg'
-      TargetFolder: '$(build.artifactstagingdirectory)'
+  # - task: CopyFiles@2
+  #   displayName: 'Copy'
+  #   inputs:
+  #     SourceFolder: '$(system.defaultworkingdirectory)'
+  #     Contents: '**\VBar.Setups.*.nupkg'
+  #     TargetFolder: '$(build.artifactstagingdirectory)'
       
+  # - task: PublishSymbols@2
+  #   displayName: 'Publishing Symbols'
+  #   inputs:
+  #     SearchPattern: '**/bin/**/*.pdb'
+  #     SymbolServerType: 'TeamServices'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Artifacting the path ${{parameters.artifactPath}}'
+    inputs:
+      PathtoPublish: '${{parameters.artifactPath}}'
+      ArtifactName: '${{parameters.artifactName}}'
+      publishLocation: 'Container'  
